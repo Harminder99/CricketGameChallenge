@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -32,13 +32,19 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  useEffect(() => {
+    MatchCalculations.setUpMatch();
+  }, []);
+
   const createPromiseNativeTest = async () => {
-    try {
-      var result = await MatchCalculations.createMatchLogsWithPromise();
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   var result = await MatchCalculations.createMatchLogsWithPromise();
+    //   MatchCalculations.spinBall();
+    //   console.log(result);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    MatchCalculations.spinBall();
   };
 
   return (
