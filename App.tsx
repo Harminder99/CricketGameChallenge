@@ -108,7 +108,10 @@ const App = () => {
     });
 
     return () => {
-      eventEmitter?.removeAllListeners();
+      eventEmitter?.removeAllListeners('change-player');
+      eventEmitter?.removeAllListeners('match-summary');
+      eventEmitter?.removeAllListeners('all-out');
+      eventEmitter?.removeAllListeners('ball-by-ball');
     };
   }, []);
 

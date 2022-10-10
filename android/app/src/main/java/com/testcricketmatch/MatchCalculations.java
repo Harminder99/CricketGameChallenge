@@ -124,7 +124,7 @@ public class MatchCalculations extends ReactContextBaseJavaModule {
             } else if (run == 7) {
                 required = Update.updateWickets(required);
 
-                if (required.getWicketsLeft() > 1) {
+                if (required.getWicketsLeft() > 2) {
                     for (int k = 0; k < players.size(); k++) {
                         if ((onCrease.get(0).getName().equals(players.get(k).getName()))) {
                             Player temp = onCrease.get(0);
