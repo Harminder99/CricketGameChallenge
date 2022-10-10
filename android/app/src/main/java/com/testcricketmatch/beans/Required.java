@@ -10,6 +10,7 @@ public class Required {
     private int numberOfRunsRequired;
     private int wicketsLeft;
     private int ballsLeft;
+
     public Required(int numberOfRunsRequired,int ballsLeft,int wicketsLeft){
         this.numberOfRunsRequired=numberOfRunsRequired;
         this.wicketsLeft=wicketsLeft;
