@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.testcricketmatch.Initializer.MatchIntializer;
@@ -101,6 +102,27 @@ public class MatchCalculations extends ReactContextBaseJavaModule {
         ballbyballcommentary(ballsCompleted, onCrease.get(0), 0);
         updatePlayer();
     }
+
+    @ReactMethod
+    public void probabilityRandomNumber(ReadableArray probabilityList , Promise promise){
+
+
+
+        try {
+            int randomnumber = (int) (Math.random()*100);
+            int runs=0;
+            for(int i=0;i<probabilityList.size();i++){
+                if(randomnumber-probabilityList.getInt(i)<=0){
+                    runs=i;
+                    break;
+                }
+                randomnumber=randomnumber-probabilityList.getInt(i);
+            }
+            promise.resolve(runs);
+        } catch(Exception e) {
+            promise.reject("Runs Error", e);
+        }
+        }
 
     @ReactMethod
     public void spinBall() {
